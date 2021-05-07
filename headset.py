@@ -20,21 +20,21 @@ while(True):
     prices = soup.find_all('span', {'class': 'itemPrice'})
     #print(items)
 
-
-    if len(items) < 60 :# number of items per page 60 and last page will be less than 60 :D so i will go out loop
-        break
     #get each item name,link and price
     for i in range(len(items)):
         # print(items[i].text)
-        headphones.append(items[i].text)
+        headphones.append(items[i].text.strip())
         # print(items[i]['href'])
-        links.append(items[i]['href'])
+        links.append(items[i]['href'].strip())
         # print(prices[i].text)
-        total.append(prices[i].text)
+        total.append(prices[i].text.strip())
 
     print(f'page {page_id} was completed')
     print('>>collected items: '+str((len(headphones))))
     page_id += 1
+
+    if len(items) < 60 :# number of items per page 60 and last page will be less than 60 :D so i will go out loop
+        break
 
 
 
