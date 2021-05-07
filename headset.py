@@ -46,4 +46,7 @@ with open ('file.csv', 'w') as Ofile : #open/create csv file
         # print(headphones[k], total[k], links[k])
         csv_array = [headphones[k].strip(), total[k].strip(), links[k].strip()] #row to be inserted in csv file
         # print(csv_array)
-        writer.writerow(csv_array)
+        try:
+            writer.writerow(csv_array)
+        except:
+            pass
